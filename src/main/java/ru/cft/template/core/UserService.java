@@ -1,8 +1,19 @@
 package ru.cft.template.core;
 
-import org.springframework.security.core.userdetails.UserDetailsService;
-import ru.cft.template.models.User;
+import ru.cft.template.entity.User;
 
-public interface UserService extends UserDetailsService {
-    User getUserById(String id);
+import java.util.Optional;
+
+public interface UserService {
+    Optional<User> getUserById(Long id);
+
+    void save(User user);
+
+    void update(Long id, User user);
+
+    User findByUsername(String name);
+
+    User getUserByPhone(Long phone);
+
+    User getUserByIdWithSessions(Long id);
 }

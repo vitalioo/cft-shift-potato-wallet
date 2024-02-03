@@ -1,0 +1,17 @@
+package ru.cft.template.core;
+
+import ru.cft.template.api.model.Session;
+import ru.cft.template.api.model.Token;
+
+import java.util.Optional;
+import java.util.UUID;
+
+public interface TokenService {
+    Token create(Session session);
+
+    void save(Token token);
+
+    void delete(Long sessionId);
+
+    Optional<Token> getById(UUID id);
+}

@@ -1,35 +1,51 @@
 package ru.cft.template.core.impl;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import ru.cft.template.api.security.UserDetailsImpl;
+import org.springframework.transaction.annotation.Transactional;
 import ru.cft.template.core.UserService;
 import ru.cft.template.core.repositories.UserRepository;
-import ru.cft.template.models.User;
+import ru.cft.template.entity.User;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> user = Optional.ofNullable(userRepository.findByFirstName(username));
-
-        if(user.isEmpty()) {
-            throw new UsernameNotFoundException("User not found");
-        }
-
-        return new UserDetailsImpl(user.get());
+    public Optional<User> getUserById(Long id) {
+        return userRepository.findById(id);
     }
 
     @Override
-    public User getUserById(String id) {
-        return userRepository.getReferenceById(UUID.fromString(id));
+    @Transactional
+    public void save(User user) {
+        userRepository.save(user);
     }
+
+    @Override
+    @Transactional
+    public void update(Long id, User user) {
+        user.setId(id);
+        userRepository.save(user);
+    }
+
+    @Override
+    public User findByUsername(String name) {
+        return userRepository.findByFirstName(name);
+    }
+
+    @Override
+    public User getUserByPhone(Long phone) {
+        return userRepository.findByPhone(phone);
+    }
+
+    @Override
+    public User getUserByIdWithSessions(Long id) {
+        return userRepository.findByIdWithSessions(id);
+    }
+
 }

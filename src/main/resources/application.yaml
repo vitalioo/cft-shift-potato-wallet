@@ -13,3 +13,13 @@ spring:
         enabled: true
         locations:
           - db.migration
+    session:
+      store-type: jdbc
+    security:
+        user:
+            password: qwerty
+            name: wallet
+
+    jpa:
+      hibernate:
+          ddl-auto: update
