@@ -6,13 +6,13 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.cft.template.api.model.Session;
-import ru.cft.template.api.model.Token;
 import ru.cft.template.api.model.account.LoginRequest;
-import ru.cft.template.api.model.account.SessionResponse;
+import ru.cft.template.api.model.auth.SessionResponse;
 import ru.cft.template.core.SessionService;
 import ru.cft.template.core.TokenService;
 import ru.cft.template.core.UserService;
+import ru.cft.template.entity.Session;
+import ru.cft.template.entity.Token;
 import ru.cft.template.entity.User;
 
 import java.util.ArrayList;

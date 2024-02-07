@@ -2,9 +2,9 @@ package ru.cft.template.core.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.cft.template.api.model.Session;
 import ru.cft.template.core.SessionService;
 import ru.cft.template.core.repositories.SessionRepository;
+import ru.cft.template.entity.Session;
 import ru.cft.template.entity.User;
 
 import java.util.Optional;

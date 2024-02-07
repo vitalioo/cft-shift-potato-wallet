@@ -1,10 +1,9 @@
 package ru.cft.template.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import ru.cft.template.api.model.Session;
-import ru.cft.template.api.model.Token;
 
 import java.util.Date;
 import java.util.Set;
@@ -42,11 +41,13 @@ public class User {
     private Integer age;
     private String password;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    @JsonIgnore
     private Set<Session> sessions;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "user_id")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    @JsonIgnore
     private Set<Token> tokens;
+
+
 }

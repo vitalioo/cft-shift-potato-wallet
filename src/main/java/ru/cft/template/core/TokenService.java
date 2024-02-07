@@ -1,7 +1,7 @@
 package ru.cft.template.core;
 
-import ru.cft.template.api.model.Session;
-import ru.cft.template.api.model.Token;
+import ru.cft.template.entity.Session;
+import ru.cft.template.entity.Token;
 
 import java.util.Optional;
 import java.util.UUID;

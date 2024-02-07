@@ -1,8 +1,8 @@
-package ru.cft.template.api.model.account;
+package ru.cft.template.api.model.auth;
 
 import lombok.Getter;
 import lombok.Setter;
-import ru.cft.template.api.model.Session;
+import ru.cft.template.entity.Session;
 
 import java.util.Date;
 

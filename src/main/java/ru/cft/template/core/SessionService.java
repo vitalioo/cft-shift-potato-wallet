@@ -1,6 +1,6 @@
 package ru.cft.template.core;
 
-import ru.cft.template.api.model.Session;
+import ru.cft.template.entity.Session;
 import ru.cft.template.entity.User;
 
 import java.util.Optional;

@@ -2,10 +2,10 @@ package ru.cft.template.core.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.cft.template.api.model.Session;
-import ru.cft.template.api.model.Token;
 import ru.cft.template.core.TokenService;
 import ru.cft.template.core.repositories.TokenRepository;
+import ru.cft.template.entity.Session;
+import ru.cft.template.entity.Token;
 
 import java.util.Optional;
 import java.util.UUID;

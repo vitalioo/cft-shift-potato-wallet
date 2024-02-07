@@ -2,7 +2,7 @@ package ru.cft.template.core.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import ru.cft.template.api.model.Token;
+import ru.cft.template.entity.Token;
 
 import java.util.UUID;
 

@@ -1,10 +1,8 @@
-package ru.cft.template.api.model;
+package ru.cft.template.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import ru.cft.template.entity.User;
 
 import java.util.Date;
 
@@ -12,6 +10,8 @@ import java.util.Date;
 @Getter
 @Setter
 public class Session {
+    private static final int THIRTY_MINUTES_IN_MILLISECONDS = 30 * 60 * 1000;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -20,11 +20,10 @@ public class Session {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    @JsonIgnore
+//    @JsonIgnore
     private User user;
 
     public void setExpirationTimeIn30Minutes() {
-        final int THIRTY_MINUTES_IN_MILLISECONDS = 30 * 60 * 1000;
         this.expirationTime = new Date(System.currentTimeMillis() + THIRTY_MINUTES_IN_MILLISECONDS);
         this.active = true;
     }
