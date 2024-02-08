@@ -20,7 +20,9 @@ public class TokenServiceImpl implements TokenService {
         Token token = new Token();
         token.setUser(session.getUser());
         token.setSession(session);
-        tokenRepository.save(token);
+
+        save(token);
+
         return token;
     }
 
