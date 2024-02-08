@@ -49,5 +49,6 @@ public class User {
     @JsonIgnore
     private Set<Token> tokens;
 
-
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "user")
+    private Wallet wallet;
 }
