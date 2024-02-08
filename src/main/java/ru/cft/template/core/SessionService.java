@@ -13,4 +13,6 @@ public interface SessionService {
     void delete(Long id);
 
     Optional<Session> getById(Long id);
+
+    Session getByUser(Optional<User> user, String authTokenHeader);
 }
