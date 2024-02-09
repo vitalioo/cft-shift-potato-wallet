@@ -12,6 +12,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User findByPhone(Long phone);
 
-    @Query("SELECT p FROM User p LEFT JOIN FETCH p.sessions WHERE p.id = :id")
+    @Query("SELECT p FROM User p LEFT JOIN p.sessions WHERE p.id = :id")
     User findByIdWithSessions(@Param("id") Long id);
 }
